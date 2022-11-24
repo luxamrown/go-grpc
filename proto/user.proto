@@ -1,0 +1,29 @@
+syntax="proto3";
+
+// definisi package di golang. ketika protobuf digenerate, maka akan mengikuti
+// struktur berikut
+
+option go_package="model/user";
+
+
+// definisi package
+package user;
+
+// request payload
+
+message GreetingRequest{
+    string name = 1;
+    string salutation = 2;
+};
+
+// response payload
+
+message GreetingResponse{
+    string GreetingMessage = 1;
+}
+
+// define rpc service
+
+service UserService{
+    rpc GreetUser (GreetingRequest) returns (GreetingResponse);
+}
